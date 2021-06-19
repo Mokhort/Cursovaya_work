@@ -1,0 +1,77 @@
+﻿@model Kursovaya_work.Models.UserModel
+@{
+    ViewData["Title"] = $"My page {Model.Username}";
+}
+<div>
+    <h4>My page</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Passport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Passport)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+        <dt class="col-sm-2">
+            Avatar
+        </dt>
+        <dd class="col-sm-10">
+            <img src="/Account/Avatar?username=@Model.Username" alt="Avatar" height="200" />
+        </dd>
+        @foreach (AddressModel address in Model.Addres)
+        {
+            <dt class="col-sm-2">
+                Адрес
+            </dt>
+            <dd class="col-sm-10">
+                @address.Addr
+            </dd>
+            <dt class="col-sm-2">
+                Описание
+            </dt>
+            <dd class="col-sm-10">
+                @address.Description
+            </dd>
+            <dt class="col-sm-2">
+                Стоимость аренды в сутки
+            </dt>
+            <dd class="col-sm-10">
+                @address.Cost
+            </dd>
+            <dt class="col-sm-2">
+                Количество комнат
+            </dt>
+            <dd class="col-sm-10">
+                @address.Rooms
+            </dd>
+           
+            <dd class="col-sm-10">
+
+            </dd>
+        }
+    </dl>
+</div>

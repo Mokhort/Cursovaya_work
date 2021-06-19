@@ -1,0 +1,101 @@
+﻿@using System.Security.Claims
+@model Kursovaya_work.Models.IndexModel
+@{
+    ViewData["Title"] = "Main Page";
+}
+
+<head>
+    <meta charset="utf-8">
+    <title>border-spacing</title>
+    <style>
+        table {
+            width: 800px; /* Ширина таблицы */
+            border-spacing: 100px 100px; /* Расстояние между ячейками */
+            margin: auto
+        }
+    </style>
+</head>
+
+@* $strSQL ="SELECT DISTINCT `Город` FROM `Аэропорт` ORDER BY `Город` ASC"; *@
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Get trip with us!</h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Index" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div align="center" style="margin:auto">
+                        <table align="center">
+                            <tr>
+                                <th>
+                                    <label asp-for="City_1" class="control-label"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="City_2" class="control-label"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="Time_Departure" class="control-label"></label>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    <select asp-for="City_1" class="form-control" asp-items="Html.GetEnumSelectList<Kursovaya_work.DB.City_name>()"></select>
+                                    <span asp-validation-for="City_1" class="text-danger"></span>
+                                </th>
+                                <th>
+                                    @*@"@(new SelectList(Model.name_city_1,"Id","City"))"*@
+                                    @*Html.DropDownListFor(x => Model.City_1, new SelectList(Model.name_city_1, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "City" })*@
+                                    @* Html.GetEnumSelectList<JwtTest.EF.UserRole>()asp-items=""  (new SelectList(Model.name_city,"Id","City"))  Html.GetEnumSelectList<JwtTest.EF.ArtOrder.Status>()*@
+                                    <select asp-for="City_2" class="form-control" asp-items=" Html.GetEnumSelectList<Kursovaya_work.DB.City_name>()"></select>
+                                    <span asp-validation-for="City_2" class="text-danger"></span>
+                                </th>
+                                <th>
+                                    <input asp-for="Time_Departure" class="form-control" />
+                                    <span asp-validation-for="Time_Departure" class="text-danger"></span>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            @*@foreach (IndexModel search in Model)
+            {
+                <dt class="col-sm-2">
+                    Name flight
+                </dt>
+                <dd class="col-sm-10">
+                    @search.Name_flight
+                </dd>
+                <dt class="col-sm-2">
+                    irport departure
+                </dt>
+                <dd class="col-sm-10">
+                    @search.Airport_departure
+                </dd>
+                <dt class="col-sm-2">
+                    Airpot arrival
+                </dt>
+                <dd class="col-sm-10">
+                    @search.Airpot_arrival
+                </dd>
+                <dt class="col-sm-2">
+                    Cost
+                </dt>
+                <dd class="col-sm-10">
+                    @search.Cost
+                </dd>
+
+                <dd class="col-sm-10">
+
+                </dd>
+            }*@
+            </dl>
+        </div>
+        </div>
+    </div>
+</body>
